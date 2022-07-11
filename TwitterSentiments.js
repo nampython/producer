@@ -39,20 +39,20 @@ client.stream('statuses/filter', { 'locations': '-180,-90,180,90', 'track': 'cor
                     tweet64: (data.extended_tweet !== undefined) ? new Buffer.from(data.extended_tweet.full_text).toString('ascii') : new Buffer.from(data.text).toString('ascii'),
                     screen_name: data.user.screen_name,
                     url_img: data.user.profile_image_url,
-                    latitude: data.coordinates.coordinates[0],
-                    longitude: data.coordinates.coordinates[1],
+                    latitude: data.coordinates.coordinates[1],
+                    longitude: data.coordinates.coordinates[0],
                     lang: data.lang
                 });
                 if (data.text) {
                     console.log('--------------------------------');
-                    console.log(data)
+                    // console.log(data)
                     console.log('id: ', data.id);
                     console.log('timestamp_ms: ', data.timestamp_ms);
                     console.log('tweet64: ', (data.extended_tweet !== undefined) ? data.extended_tweet.full_text : data.text);
                     console.log('screen_name: ',data.user.screen_name );
                     console.log('url_img: ',data.user.profile_image_url);
-                    console.log('latitude: ', data.coordinates.coordinates[0]);
                     console.log('latitude: ', data.coordinates.coordinates[1]);
+                    console.log('longitude: ', data.coordinates.coordinates[0]);
                     console.log('lang: ', data.lang);
                     console.log('--------------------------------')
                 }
